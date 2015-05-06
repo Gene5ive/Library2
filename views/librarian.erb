@@ -1,3 +1,10 @@
 <h1>Hi Librarian</h1>
 
+<ul>
+    <% @copies.each do |copy| %>
+      <li><%= copy.title() %></a></li>
+    <% end %>
+</ul>
+
 <a href="/copies/new">Copies Form</a>
+<p><a href="/">Back</a></p>

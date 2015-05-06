@@ -1,1 +1,10 @@
 <h1>Hi Patron</h1>
+
+<ul>
+    <% @patrons.each do |patron| %>
+      <li><a href="/patrons/<%= patron.id() %>"><%= patron.name() %></a></li>
+    <% end %>
+</ul>
+
+<a href="/patrons/new">Patron Form</a>
+<p><a href="/">Back</a></p>

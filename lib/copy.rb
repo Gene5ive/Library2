@@ -4,7 +4,6 @@ class Copy
 
   define_method(:initialize) do |attributes|
     @title = attributes.fetch(:title)
-    @book_author = attributes.fetch(:book_author)
     @id = attributes.fetch(:id)
   end
 
