@@ -44,18 +44,19 @@ class Patron
   end
 
   define_method(:delete) do
+    DB.exec("DELETE FROM checkouts WHERE patron_id = #{self.id()};")
     DB.exec("DELETE FROM patrons WHERE id = #{self.id()};")
   end
 
   define_method(:copies) do
-    checkouts = []
+    patron_copies = []
     results = DB.exec("SELECT copies_id FROM checkouts WHERE patron_id = #{self.id()};")
     results.each() do |result|
       copies_id = result.fetch("copies_id").to_i()
       copy = DB.exec("SELECT * FROM copies WHERE id = #{copies_id};")
       title = copy.first().fetch("title")
-      checkouts.push(Patron.new({:name => name, :id => copies_id}))
+      patron_copies.push(Copy.new({:title => title, :id => copies_id}))
     end
-    checkouts
+    patron_copies
   end
 end
