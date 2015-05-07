@@ -9,19 +9,19 @@ set(:show_exceptions, false)
 describe('the index/librarian path', {:type => :feature}) do
    it('allows a user to identify as a librarian and visit the page') do
      visit('/')
-     click_link('Librarian')
-     expect(page).to have_content('Hi Librarian')
+     click_link('Click here if you are the librarian')
+     expect(page).to have_content('Hello Librarian')
    end
 
   it('allows librarian to add a book copy') do
     visit('/librarian')
-    click_link('Copies Form')
+    click_link('Click here to add a book to the library:')
     expect(page).to have_content('Book Form')
   end
 
   it('shows the librarian the success page') do
     visit('/copies/new')
-    fill_in('Copy', with: "The Giver")
+    fill_in('Title:', with: "The Giver")
     click_button('Add Copy')
     expect(page).to have_content("Success!")
   end
@@ -30,13 +30,13 @@ end
 describe('the index/patron path', {:type => :feature}) do
   it('allows a user to identify as a patron and visit the page') do
     visit('/')
-    click_link('Patron')
-    expect(page).to have_content('Hi Patron')
+    click_link('Click here if you are a patron')
+    expect(page).to have_content('Hello Library Patron')
   end
 
   it('allows patron to add themselves to membership list') do
     visit('/patron')
-    click_link('Patron Form')
+    click_link('Membership Form')
     expect(page).to have_content('Patron Form')
   end
 

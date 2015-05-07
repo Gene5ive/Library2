@@ -59,4 +59,9 @@ class Patron
     end
     patron_copies
   end
+
+  # define_method(:return) do |book|
+  #   DB.exec("DELETE FROM checkouts WHERE copies_id = #{book.id()};")
+  # end
+
 end

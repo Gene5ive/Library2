@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Library</title>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-</head>
-<body>
+  <head>
+    <title>Library</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/style.css'>
+  </head>
+  <body>
+    <nav>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+
+    <form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+      <p class="button">
+      <button type="button" class="btn btn-primary btn-lg"><a href="/patron">Sign In</a></button>
+      <button type="button" class="btn btn-primary btn-lg"><a href="/librarian">Staff Only</a></button>
+      <button type="button" class="btn btn-primary btn-lg"><a href="/">Home</a></button>
+      </p>
+
+      <div class="container">
+    </form>
+  </div>
+    </nav>
+    </nav>
+
+
   <div class="container">
     <%= yield %>
   </div>
+    </nav>
 </body>
 </html>

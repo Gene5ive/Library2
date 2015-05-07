@@ -1,0 +1,19 @@
+body {
+  color: white;
+  margin-left: 370px;
+  background-image: url("../images/lib.jpg")
+
+}
+
+.button {
+  text-align: center;
+}
+
+a {
+    color: white;
+}
+
+a .hidden {
+  display: none;
+  visibility: hidden;
+}

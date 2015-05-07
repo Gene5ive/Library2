@@ -44,6 +44,7 @@ class Copy
   end
 
   define_method(:delete) do
+    DB.exec("DELETE FROM checkouts WHERE copies_id = #{self.id()};")
     DB.exec("DELETE FROM copies WHERE id = #{self.id()};")
   end
 end
