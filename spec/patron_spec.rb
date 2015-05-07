@@ -58,5 +58,18 @@ describe(Patron) do
       patron.delete()
       expect(Patron.all()).to(eq([patron2]))
     end
-  end      
+  end
+
+  describe('#copies') do
+    it("returns all of the copies the patron has checked out") do
+      patron = Patron.new(:name => "Bob", :id => nil)
+      patron.save()
+      book1 = Copy.new({:title => "Book One", :id => nil})
+      book1.save()
+      book2 = Copy.new({:title => "Book Two", :id => nil})
+      book2.save()
+      patron.update({:copies_id => [book1.id(), book2.id()]})
+      expect(patron.copies()).to(eq([book1, book2]))
+    end
+  end
 end

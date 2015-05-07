@@ -37,9 +37,25 @@ class Patron
     @name = attributes.fetch(:name, @name)
     @id = self.id()
     DB.exec("UPDATE patrons SET name = '#{@name}' WHERE id = #{@id};")
+
+    attributes.fetch(:copies_id, []).each() do |copies_id|
+      DB.exec("INSERT INTO checkouts (copies_id, patron_id) VALUES (#{copies_id}, #{self.id()});")
+    end
   end
 
   define_method(:delete) do
     DB.exec("DELETE FROM patrons WHERE id = #{self.id()};")
+  end
+
+  define_method(:copies) do
+    checkouts = []
+    results = DB.exec("SELECT copies_id FROM checkouts WHERE patron_id = #{self.id()};")
+    results.each() do |result|
+      copies_id = result.fetch("copies_id").to_i()
+      copy = DB.exec("SELECT * FROM copies WHERE id = #{copies_id};")
+      title = copy.first().fetch("title")
+      checkouts.push(Patron.new({:name => name, :id => copies_id}))
+    end
+    checkouts
   end
 end
