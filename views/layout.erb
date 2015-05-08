@@ -7,26 +7,22 @@
   </head>
   <body>
     <nav>
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-
-    <form class="navbar-form navbar-left" role="search">
-    <div class="form-group">
-      <p class="button">
-      <button type="button" class="btn btn-primary btn-lg"><a href="/patron">Sign In</a></button>
-      <button type="button" class="btn btn-primary btn-lg"><a href="/librarian">Staff Only</a></button>
-      <button type="button" class="btn btn-primary btn-lg"><a href="/">Home</a></button>
-      </p>
-
-      <div class="container">
-    </form>
-  </div>
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <div class="container">
+              <p class="button">
+                <button type="button" class="btn btn-primary btn-lg"><a href="/patron">Sign In</a></button>
+                <button type="button" class="btn btn-primary btn-lg"><a href="/librarian">Staff Only</a></button>
+                <button type="button" class="btn btn-primary btn-lg"><a href="/">Home</a></button>
+              </p>
+            </div>
+          </div>
+        </form>
+      </nav>
     </nav>
-    </nav>
 
-
-  <div class="container">
     <%= yield %>
-  </div>
-    </nav>
-</body>
+
+  </body>
 </html>
